@@ -13,5 +13,6 @@ COPY . .
 
 EXPOSE 8000
 
-CMD python startup.py && python seed.py && uvicorn app.main:app --host 0.0.0.0 --port ${PORT:-8000}
+CMD ["sh", "-c", "python startup.py && python seed.py && uvicorn app.main:app --host 0.0.0.0 --port ${PORT:-8000} --log-level debug"]
+
 
